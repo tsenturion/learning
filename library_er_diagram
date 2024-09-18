@@ -1,0 +1,38 @@
+digraph {
+	Book [label="Book
+- BookID (PK)
+- Title
+- Authors
+- Publisher
+- Year
+- Genre
+- TotalCopies
+- AvailableCopies"]
+	Reader [label="Reader
+- ReaderID (PK)
+- Name
+- DateOfBirth
+- Address
+- PhoneNumber
+- RegistrationDate"]
+	BookIssue [label="BookIssue
+- IssueID (PK)
+- BookID (FK)
+- ReaderID (FK)
+- IssueDate
+- DueDate"]
+	BookReturn [label="BookReturn
+- ReturnID (PK)
+- IssueID (FK)
+- ReturnDate
+- Fine"]
+	Employee [label="Employee
+- EmployeeID (PK)
+- Name
+- Position
+- PhoneNumber
+- Email"]
+	Book -> BookIssue [label="1 to M"]
+	Reader -> BookIssue [label="1 to M"]
+	BookIssue -> BookReturn [label="1 to 1"]
+}
