@@ -3,9 +3,10 @@ def print_rectangle_area(length, width):
     print(f"Площадь прямоугольника: {area}")
 
 
-def add(a, b):
-    return a + b
+
+def add(first_number, second_number):
+    return first_number + second_number
 
 
-def subtract(a, b):
-    return a - b
+
+
