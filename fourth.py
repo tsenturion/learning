@@ -135,7 +135,7 @@ match1 = search(r'\d+', '123qwe333')
 print(match1.group())
 
 matches = findall(r'\d+', '123qwe333')
-print(matches)
+print(int(matches))
 
 matches = finditer(r'\d+', '123qwe333')
 for i in matches:
