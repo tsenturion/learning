@@ -8,19 +8,6 @@ import json
 app = QApplication([])
 
 
-'''Заметки в json'''
-notes = {
-    "Добро пожаловать!" : {
-        "текст" : "Это самое лучшее приложение для заметок в мире!",
-        "теги" : ["добро", "инструкция"]
-    }
-}
-with open("notes_data.json", "w") as file:
-    json.dump(notes, file)
-
-
-
-
 '''Интерфейс приложения'''
 #параметры окна приложения
 notes_win = QWidget()
@@ -85,28 +72,11 @@ layout_notes.addLayout(col_2, stretch = 1)
 notes_win.setLayout(layout_notes)
 
 
-'''Функционал приложения'''
-def show_note():
-    #получаем текст из заметки с выделенным названием и отображаем его в поле редактирования
-    key = list_notes.selectedItems()[0].text()
-    print(key)
-    field_text.setText(notes[key]["текст"])
-    list_tags.clear()
-    list_tags.addItems(notes[key]["теги"])
-
-
-'''Запуск приложения'''
-#подключение обработки событий
-list_notes.itemClicked.connect(show_note)
-
-
 #запуск приложения
 notes_win.show()
 
-
-with open("notes_data.json", "r") as file:
+with open("notes_data.json", "r", encoding='utf-8') as file:
     notes = json.load(file)
 list_notes.addItems(notes)
-
 
 app.exec_()
